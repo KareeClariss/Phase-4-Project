@@ -1,5 +1,5 @@
-       🚦 **Chicago Traffic Accidents – Analysis & Predictive Modeling**
-Phase 4 Project – Group 13 (Flatiron School)
+       🚦 ** Chicago Traffic Accidents – Analysis & Predictive Modeling **
+** Phase 4 Project – Group 13 (Flatiron School)**
 1. **Overview**
 
 This project analyses nearly one million recorded traffic crashes in Chicago to identify the conditions and behaviours most strongly associated with accident occurrence and severity.
@@ -12,151 +12,151 @@ The final output is a multi-class classifier that predicts the Cause Group of a 
 
 Build a supervised machine-learning model capable of predicting the Cause Group of a traffic crash.
 
-Supporting Objectives
+**Supporting Objectives**
 
-Analyse how weather, lighting, road defects, speed limits, and crash type affect crash outcomes.
+-Analyse how weather, lighting, road defects, speed limits, and crash type affect crash outcomes.
 
-Identify temporal accident patterns (year, month, week, hour).
+-Identify temporal accident patterns (year, month, week, hour).
 
-Map high-risk hotspots through geospatial clustering.
+-ap high-risk hotspots through geospatial clustering.
 
-Explore connections between injury severity, number of units, and contributory causes.
+-Explore connections between injury severity, number of units, and contributory causes.
 
-Train and evaluate multiple classification algorithms.
+-Train and evaluate multiple classification algorithms.
 
 **3. Dataset Description**
 
-Source: Chicago Data Portal – Traffic Crashes (Vehicles)
-Records: ~993,000
-Original Features: 48 → reduced and cleaned
+-Source: Chicago Data Portal – Traffic Crashes (Vehicles)
+-Records: ~993,000
+-Original Features: 48 → reduced and cleaned
 
-*Key Variables Used*
+**Key Variables Used**
 
-Crash characteristics:
+**Crash characteristics:**
 crash_date, posted_speed_limit, first_crash_type, trafficway_type
 
-Environmental conditions:
+**Environmental conditions:**
 weather_condition, lighting_condition, road_defect
 
-Severity indicators:
+**Severity indicators:**
 injuries_total, most_severe_injury
 
-Location data:
+**Location data:**
 latitude, longitude, Location_Key
 
-Target variable:
+**Target variable:**
 prim_contributory_cause → mapped into Cause_Group
 
 **4. Data Preparation**
 
-Key steps included:
+**Key steps included:**
 
-Removing irrelevant and high-missing features
+-Removing irrelevant and high-missing features
 
-Standardising labels and correcting inconsistent text
+-Standardising labels and correcting inconsistent text
 
-Converting datetime fields, extracting hour, day, month
+-Converting datetime fields, extracting hour, day, month
 
-Mapping 40+ contributory-cause labels into 7 Cause Groups
+-Mapping 40+ contributory-cause labels into 7 Cause Groups
 
-Checking outliers and retaining real-world extremes
+-Checking outliers and retaining real-world extremes
 
-Encoding categorical variables using LabelEncoder
+-Encoding categorical variables using LabelEncoder
 
 **5. Feature Engineering**
-Cause Group Consolidation
+-Cause Group Consolidation
 
-The original contributory-cause categories were grouped into these seven interpretable classes:
+-The original contributory-cause categories were grouped into these seven interpretable classes:
 
-Speed & Right-of-Way Failure
+-Speed & Right-of-Way Failure
 
-Maneuver & Positioning Error
+-Maneuver & Positioning Error
 
-Disregard for Traffic Controls
+-Disregard for Traffic Controls
 
-Impairment & Recklessness
+-Impairment & Recklessness
 
-Distraction & Visibility
+-Distraction & Visibility
 
-Environmental / Mechanical
+-Environmental / Mechanical
 
-Administrative / Unclassified
+-Administrative / Unclassified
 
-Additional Engineered Features
+-Additional Engineered Features
 
-crash_hour
+-crash_hour
 
-crash_day_of_week
+-crash_day_of_week
 
-crash_month
+-crash_month
 
-Location_Key (intersection-level grouping)
+-Location_Key (intersection-level grouping)
 
 **6. Exploratory Data Analysis (EDA)**
-Analyses Conducted
+-Analyses Conducted
 
-Injury severity distribution
+-Injury severity distribution
 
-Annual, monthly, weekly, and hourly crash trends
+-Annual, monthly, weekly, and hourly crash trends
 
-Word cloud of contributory causes
+-Word cloud of contributory causes
 
-KDE distributions for numeric variables
+-KDE distributions for numeric variables
 
-Heatmaps showing time-of-day patterns
+-Heatmaps showing time-of-day patterns
 
-Crash hotspots using latitude/longitude clustering
+-Crash hotspots using latitude/longitude clustering
 
 **Key Findings**
 
-Most crashes involve two vehicles, occur at 30 mph, and result in no injuries.
+-Most crashes involve two vehicles, occur at 30 mph, and result in no injuries.
 
-Clear weather and daylight have the most crashes due to higher traffic volumes.
+-Clear weather and daylight have the most crashes due to higher traffic volumes.
 
-Fridays and the month of September show the highest crash activity.
+-Fridays and the month of September show the highest crash activity.
 
-High-risk hotspots align with busy road junctions and major corridors.
+-High-risk hotspots align with busy road junctions and major corridors.
 
 **7. Modelling**
-*Target Variable*
+**Target Variable**
 
-Cause_Group (multi-class classification)
+-Cause_Group (multi-class classification)
 
 **Models Trained**
 
-Decision Tree
+-Decision Tree
 
-Random Forest
+-Random Forest
 
-Logistic Regression
+-Logistic Regression
 
-Gradient Boosting
+-Gradient Boosting
 
-XGBoost (top-performing model)
+-XGBoost (top-performing model)
 
-Class Balancing Technique
+-Class Balancing Technique
 
-Applied RandomOverSampler to address target imbalance.
+-Applied RandomOverSampler to address target imbalance.
 
 **Evaluation Metrics**
 
-Accuracy
+-Accuracy
 
-Precision, Recall, F1-score
+-Precision, Recall, F1-score
 
-Confusion Matrix
+-Confusion Matrix
 
-ROC-AUC curves for each class
+-ROC-AUC curves for each class
 
-Cross-validation scoring
+-Cross-validation scoring
 
-Performance Summary
+-Performance Summary
 
-Baseline Decision Tree accuracy: ~51%
+-Baseline Decision Tree accuracy: ~51%
 
-Random Forest accuracy: ~51%
+-Random Forest accuracy: ~51%
 
-XGBoost provided the most stable performance, especially for minority classes.
+-XGBoost provided the most stable performance, especially for minority classes.
 
 **8. Project Structure**
 ├── data/
@@ -177,50 +177,51 @@ XGBoost provided the most stable performance, especially for minority classes.
 └── README.md
 
 **9. How to Run the Project**
-Clone the repository
-git clone https://github.com/KareeClariss/Phase-4-Project.git
+-Clone the repository
+-git clone https://github.com/KareeClariss/Phase-4-Project.git
 
-Install dependencies
-pip install -r requirements.txt
+**Install dependencies**
+**pip install -r requirements.txt**
 
-Run notebooks or scripts
+**Run notebooks or scripts**
 
 Open the notebooks in JupyterLab or execute Python scripts in src/.
 
 ***10. Requirements***
 
-Python 3.8+
+-Python 3.8+
 
-pandas, numpy
+-pandas, numpy
 
-matplotlib, seaborn
+-matplotlib, seaborn
 
-scikit-learn
+-scikit-learn
 
-xgboost
+-xgboost
 
-imbalanced-learn
+-imbalanced-learn
 
-plotly
+-plotly
 
-wordcloud
+-wordcloud
 
-geopy
+-geopy
 
 **11. Authors**
 
-Clariss Wangari Wathiai
+-Clariss Wangari Wathiai
 
-Leslie Nungi
+-Leslie Nungi
 
-Mutuku Cyrus
+-Mutuku Cyrus
 
-Grace Kinyanjui
+-Grace Kinyanjui
 
-Bryan Caxton Njogu
+-Bryan Caxton Njogu
 
-Repository: https://github.com/KareeClariss/Phase-4-Project
+-Repository: https://github.com/KareeClariss/Phase-4-Project
 
 ***12. License***
+
 
 Released under the MIT License.
