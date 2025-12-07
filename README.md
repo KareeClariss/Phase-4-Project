@@ -1,6 +1,6 @@
-Chicago Traffic Accidents Analysis and Predictive Modeling
+#Chicago Traffic Accidents Analysis and Predictive Modeling
 
-Overview
+#Overview
 
 This repository contains a full data science workflow for analyzing the Chicago Traffic Crash Dataset and building predictive models to identify the primary contributory causes of accidents. The project demonstrates end‑to‑end processing including data cleaning, exploratory data analysis (EDA), feature engineering, geospatial analysis, class balancing, modeling, and evaluation.
 
@@ -8,13 +8,13 @@ The final deliverable is a multi-class classification pipeline aimed at helping 
 
 ---
 
-Project Objectives
+#Project Objectives
 
-Main Objective
+#Main Objective
 
 Develop a machine learning model capable of predicting the primary contributory cause category of a traffic crash.
 
-Specific Objectives
+#Specific Objectives
 
 · Analyze the effect of weather, lighting, road defects, crash type, and speed limits on crash occurrence.
 · Identify yearly, monthly, weekly, and hourly crash trends.
@@ -24,13 +24,13 @@ Specific Objectives
 
 ---
 
-Dataset
+#Dataset
 
 · Source: Chicago Data Portal – Traffic Crashes (Vehicles)
 · Size: ~993,000 records
 · Columns: 48 original features → reduced after cleaning
 
-Key Fields Used
+#Key Fields Used
 
 · crash_date
 · posted_speed_limit
@@ -46,9 +46,9 @@ Key Fields Used
 
 ---
 
-Data Preparation
+#Data Preparation
 
-Steps
+#Steps
 
 1. Removal of high-missing-value features
 2. Dropping irrelevant administrative fields
@@ -61,9 +61,9 @@ Steps
 
 ---
 
-Feature Engineering
+#Feature Engineering
 
-Primary Contributory Cause Grouping
+#Primary Contributory Cause Grouping
 
 Over 40 original labels were consolidated into 7 interpretable groups:
 
@@ -75,7 +75,7 @@ Over 40 original labels were consolidated into 7 interpretable groups:
 · External/Environmental/Mechanical
 · Unclassified/Administrative
 
-Additional Engineered Features
+#Additional Engineered Features
 
 · crash_hour
 · crash_day_of_week
@@ -84,9 +84,9 @@ Additional Engineered Features
 
 ---
 
-Exploratory Data Analysis (EDA)
+#Exploratory Data Analysis (EDA)
 
-Analyses Included
+#Analyses Included
 
 · Injury severity distribution
 · Top contributing causes
@@ -97,7 +97,7 @@ Analyses Included
 · Word Cloud for cause text frequency
 · Hotspot detection using latitude/longitude
 
-Insights
+#Insights
 
 · Most crashes occur at 30 mph, involve two vehicles, and result in no injuries.
 · Clear weather and daylight record the highest incidents due to high traffic volume.
@@ -106,13 +106,13 @@ Insights
 
 ---
 
-Modeling
+#Modeling
 
 Target
 
 Cause_Group (multi-class classification)
 
-Models Trained
+#Models Trained
 
 · Decision Tree Classifier
 · Random Forest Classifier
@@ -120,11 +120,11 @@ Models Trained
 · Gradient Boosting
 · XGBoost (recommended for best performance)
 
-Class Balancing
+#Class Balancing
 
 Applied RandomOverSampler to address class imbalance.
 
-Evaluation Metrics
+#Evaluation Metrics
 
 · Accuracy
 · Precision, Recall, F1 Score
@@ -132,7 +132,7 @@ Evaluation Metrics
 · ROC Curves
 · Cross‑validation scores
 
-Key Results
+#Key Results
 
 · Baseline Decision Tree accuracy ~51%
 · Random Forest accuracy ~51%
@@ -140,7 +140,7 @@ Key Results
 
 ---
 
-Folder Structure
+#Folder Structure
 
 ```
 ├── data/
@@ -163,7 +163,7 @@ Folder Structure
 
 ---
 
-How to Run
+#How to Run
 
 1. Clone this repository:
    ```bash
@@ -177,7 +177,7 @@ How to Run
 
 ---
 
-Requirements
+#Requirements
 
 · Python 3.8+
 · pandas, numpy
@@ -191,7 +191,7 @@ Requirements
 
 ---
 
-Key Deliverables
+#Key Deliverables
 
 · Cleaned and structured dataset
 · Complete EDA report with visualizations
@@ -202,7 +202,7 @@ Key Deliverables
 
 ---
 
-Authors
+#Authors
 
 · Clariss Wangari Wathiai
 · Leslie Nungi
