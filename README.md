@@ -1,148 +1,164 @@
-#Chicago Traffic Accidents Analysis and Predictive Modeling
+       🚦 **Chicago Traffic Accidents – Analysis & Predictive Modeling**
+Phase 4 Project – Group 13 (Flatiron School)
+1. **Overview**
 
-#Overview
+This project analyses nearly one million recorded traffic crashes in Chicago to identify the conditions and behaviours most strongly associated with accident occurrence and severity.
+Using a complete data-science workflow—data cleaning, exploratory analysis, feature engineering, geospatial analytics, modelling, and evaluation—the project demonstrates how machine learning can support proactive road-safety planning.
 
-This repository contains a full data science workflow for analyzing the Chicago Traffic Crash Dataset and building predictive models to identify the primary contributory causes of accidents. The project demonstrates end‑to‑end processing including data cleaning, exploratory data analysis (EDA), feature engineering, geospatial analysis, class balancing, modeling, and evaluation.
+The final output is a multi-class classifier that predicts the Cause Group of a crash, offering practical insights for transportation authorities.
 
-The final deliverable is a multi-class classification pipeline aimed at helping transportation authorities and safety planners transition from reactive accident reporting to proactive accident prevention.
+**2. Project Objectives**
+*Main Objective*
 
----
+Build a supervised machine-learning model capable of predicting the Cause Group of a traffic crash.
 
-#Project Objectives
+Supporting Objectives
 
-#Main Objective
+Analyse how weather, lighting, road defects, speed limits, and crash type affect crash outcomes.
 
-Develop a machine learning model capable of predicting the primary contributory cause category of a traffic crash.
+Identify temporal accident patterns (year, month, week, hour).
 
-#Specific Objectives
+Map high-risk hotspots through geospatial clustering.
 
-· Analyze the effect of weather, lighting, road defects, crash type, and speed limits on crash occurrence.
-· Identify yearly, monthly, weekly, and hourly crash trends.
-· Determine high-risk locations and hotspots using geospatial clustering.
-· Investigate relationships between crash severity, number of vehicles involved, and contributory causes.
-· Build and evaluate supervised learning models for classification.
+Explore connections between injury severity, number of units, and contributory causes.
 
----
+Train and evaluate multiple classification algorithms.
 
-#Dataset
+**3. Dataset Description**
 
-· Source: Chicago Data Portal – Traffic Crashes (Vehicles)
-· Size: ~993,000 records
-· Columns: 48 original features → reduced after cleaning
+Source: Chicago Data Portal – Traffic Crashes (Vehicles)
+Records: ~993,000
+Original Features: 48 → reduced and cleaned
 
-#Key Fields Used
+*Key Variables Used*
 
-· crash_date
-· posted_speed_limit
-· weather_condition
-· lighting_condition
-· road_defect
-· first_crash_type
-· trafficway_type
-· injuries_total
-· most_severe_injury
-· latitude, longitude
-· prim_contributory_cause → mapped to Cause_Group
+Crash characteristics:
+crash_date, posted_speed_limit, first_crash_type, trafficway_type
 
----
+Environmental conditions:
+weather_condition, lighting_condition, road_defect
 
-#Data Preparation
+Severity indicators:
+injuries_total, most_severe_injury
 
-#Steps
+Location data:
+latitude, longitude, Location_Key
 
-1. Removal of high-missing-value features
-2. Dropping irrelevant administrative fields
-3. Standardization of labels and whitespace removal
-4. Datetime conversion and feature extraction (hour, day, month)
-5. Handling missing values
-6. Class mapping into 7 "Cause_Group" categories
-7. Outlier inspection and retention of real-world extreme values
-8. Encoding categorical features using LabelEncoder
+Target variable:
+prim_contributory_cause → mapped into Cause_Group
 
----
+**4. Data Preparation**
 
-#Feature Engineering
+Key steps included:
 
-#Primary Contributory Cause Grouping
+Removing irrelevant and high-missing features
 
-Over 40 original labels were consolidated into 7 interpretable groups:
+Standardising labels and correcting inconsistent text
 
-· Speed & Right‑of‑Way Failure
-· Maneuver & Positioning Error
-· Disregard Traffic Controls
-· Impairment & Recklessness
-· Distraction & Visibility
-· External/Environmental/Mechanical
-· Unclassified/Administrative
+Converting datetime fields, extracting hour, day, month
 
-#Additional Engineered Features
+Mapping 40+ contributory-cause labels into 7 Cause Groups
 
-· crash_hour
-· crash_day_of_week
-· crash_month
-· Location_Key
+Checking outliers and retaining real-world extremes
 
----
+Encoding categorical variables using LabelEncoder
 
-#Exploratory Data Analysis (EDA)
+**5. Feature Engineering**
+Cause Group Consolidation
 
-#Analyses Included
+The original contributory-cause categories were grouped into these seven interpretable classes:
 
-· Injury severity distribution
-· Top contributing causes
-· Crash trends by year
-· Peak crash hours, days, and months
-· KDE distributions for numerical features
-· Heatmaps for hour-by-day interactions
-· Word Cloud for cause text frequency
-· Hotspot detection using latitude/longitude
+Speed & Right-of-Way Failure
 
-#Insights
+Maneuver & Positioning Error
 
-· Most crashes occur at 30 mph, involve two vehicles, and result in no injuries.
-· Clear weather and daylight record the highest incidents due to high traffic volume.
-· Fridays record the most accidents; September is the peak month.
-· Crash hotspots cluster around major intersections and dense traffic zones.
+Disregard for Traffic Controls
 
----
+Impairment & Recklessness
 
-#Modeling
+Distraction & Visibility
 
-Target
+Environmental / Mechanical
+
+Administrative / Unclassified
+
+Additional Engineered Features
+
+crash_hour
+
+crash_day_of_week
+
+crash_month
+
+Location_Key (intersection-level grouping)
+
+**6. Exploratory Data Analysis (EDA)**
+Analyses Conducted
+
+Injury severity distribution
+
+Annual, monthly, weekly, and hourly crash trends
+
+Word cloud of contributory causes
+
+KDE distributions for numeric variables
+
+Heatmaps showing time-of-day patterns
+
+Crash hotspots using latitude/longitude clustering
+
+**Key Findings**
+
+Most crashes involve two vehicles, occur at 30 mph, and result in no injuries.
+
+Clear weather and daylight have the most crashes due to higher traffic volumes.
+
+Fridays and the month of September show the highest crash activity.
+
+High-risk hotspots align with busy road junctions and major corridors.
+
+**7. Modelling**
+*Target Variable*
 
 Cause_Group (multi-class classification)
 
-#Models Trained
+**Models Trained**
 
-· Decision Tree Classifier
-· Random Forest Classifier
-· Logistic Regression
-· Gradient Boosting
-· XGBoost (recommended for best performance)
+Decision Tree
 
-#Class Balancing
+Random Forest
 
-Applied RandomOverSampler to address class imbalance.
+Logistic Regression
 
-#Evaluation Metrics
+Gradient Boosting
 
-· Accuracy
-· Precision, Recall, F1 Score
-· Confusion Matrix
-· ROC Curves
-· Cross‑validation scores
+XGBoost (top-performing model)
 
-#Key Results
+Class Balancing Technique
 
-· Baseline Decision Tree accuracy ~51%
-· Random Forest accuracy ~51%
-· XGBoost achieved superior consistency across minority classes
+Applied RandomOverSampler to address target imbalance.
 
----
+**Evaluation Metrics**
 
-#Folder Structure
+Accuracy
 
-```
+Precision, Recall, F1-score
+
+Confusion Matrix
+
+ROC-AUC curves for each class
+
+Cross-validation scoring
+
+Performance Summary
+
+Baseline Decision Tree accuracy: ~51%
+
+Random Forest accuracy: ~51%
+
+XGBoost provided the most stable performance, especially for minority classes.
+
+**8. Project Structure**
 ├── data/
 │   ├── traffic_crashes.zip
 │   └── processed_data.csv
@@ -159,61 +175,52 @@ Applied RandomOverSampler to address class imbalance.
 │   ├── figures/
 │   └── models/
 └── README.md
-```
 
----
+**9. How to Run the Project**
+Clone the repository
+git clone https://github.com/KareeClariss/Phase-4-Project.git
 
-#How to Run
+Install dependencies
+pip install -r requirements.txt
 
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/bryscax/chicago-traffic-analysis.git
-   ```
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Run the Jupyter notebooks or execute individual Python scripts in src/.
+Run notebooks or scripts
 
----
+Open the notebooks in JupyterLab or execute Python scripts in src/.
 
-#Requirements
+***10. Requirements***
 
-· Python 3.8+
-· pandas, numpy
-· seaborn, matplotlib
-· scikit-learn
-· xgboost
-· imbalanced-learn
-· plotly
-· geopy
-· wordcloud
+Python 3.8+
 
----
+pandas, numpy
 
-#Key Deliverables
+matplotlib, seaborn
 
-· Cleaned and structured dataset
-· Complete EDA report with visualizations
-· Feature engineering pipeline
-· Predictive models with evaluation reports
-· Geospatial hotspot mapping
-· Final decision-support insights for traffic safety planning
+scikit-learn
 
----
+xgboost
 
-#Authors
+imbalanced-learn
 
-· Clariss Wangari Wathiai
-· Leslie Nungi
-· Mutuku Cyrus
-· Grace Kinyanjui
-· Bryan Caxton Njogu
+plotly
 
-GitHub: https://github.com/KareeClariss/Phase-4-Project.git
+wordcloud
 
----
+geopy
 
-License
+**11. Authors**
 
-This project is released under the MIT License.
+Clariss Wangari Wathiai
+
+Leslie Nungi
+
+Mutuku Cyrus
+
+Grace Kinyanjui
+
+Bryan Caxton Njogu
+
+Repository: https://github.com/KareeClariss/Phase-4-Project
+
+***12. License***
+
+Released under the MIT License.
