@@ -1,5 +1,5 @@
-       🚦 ** Chicago Traffic Accidents – Analysis & Predictive Modeling **
-** Phase 4 Project – Group 13 (Flatiron School)**
+**Chicago Traffic Accidents – Analysis & Predictive Modeling**
+**Phase 4 Project – Group 13**
 1. **Overview**
 
 This project analyses nearly one million recorded traffic crashes in Chicago to identify the conditions and behaviours most strongly associated with accident occurrence and severity.
@@ -225,3 +225,4 @@ Open the notebooks in JupyterLab or execute Python scripts in src/.
 
 
 Released under the MIT License.
+
